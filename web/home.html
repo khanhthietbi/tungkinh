@@ -23,6 +23,16 @@
             $('#result').html(localStorage.current);
             $('#current').val(localStorage.current);
         }
+        if (localStorage.rpm) {
+            $('#rpm').val(localStorage.rpm);
+        }
+        if (localStorage.count) {
+            $('#count').val(localStorage.count);
+        }
+        if (localStorage.mute) {
+            $('#countSpn').html(localStorage.mute);
+            $('#mute').val(localStorage.mute);
+        }
         $('#countSpn').html($('#count').val());
         setInterval(function(){$('#clock').html(getTime())}, 1000);
 
@@ -42,7 +52,6 @@
                     case 0: tickContent = '.'; break;
                     case 1: tickContent = '..'; break;
                     case 2: tickContent = '...'; break;
-
                 }
             }
             $('#tick').html(tickContent);
@@ -57,23 +66,22 @@
         }
 
         $('#play').click(function(){
-            $this = this;
-            setTimeout(function(){
-                // do stuff here, in your case, append text
-                if ($this.classList.contains('disabled')) return;
-                $this.classList.add('disabled');
-                $('input').prop("disabled",true);
-                document.querySelector('#pause').classList.remove('disabled');
-                var current = parseInt($('#current').val());
-                var mute = parseInt($('#mute').val());
-                rpm = parseInt($('#rpm').val());
-                count = parseInt($('#count').val());
-                $('#countSpn').html($('#count').val());
-                total = count+mute;
-                result = current*(total);
-                gap = 60/rpm*1000;
-                interval = setInterval(callback, gap);
-            }, 500);
+            localStorage.setItem('rpm',$('#rpm').val());
+            localStorage.setItem('count',$('#count').val());
+            localStorage.setItem('mute',$('#mute').val());
+            if (this.classList.contains('disabled')) return;
+            this.classList.add('disabled');
+            $('input').prop("disabled",true);
+            document.querySelector('#pause').classList.remove('disabled');
+            var current = parseInt($('#current').val());
+            var mute = parseInt($('#mute').val());
+            rpm = parseInt($('#rpm').val());
+            count = parseInt($('#count').val());
+            $('#countSpn').html($('#count').val());
+            total = count+mute;
+            result = current*(total);
+            gap = 60/rpm*1000;
+            interval = setInterval(callback, gap);
         })
 
         $('#pause').click(function(){
@@ -94,7 +102,7 @@
                 <div class="pt-5 text-center">
                     <button class="btn btn-primary mr-3 px-4 py-4" id="play">Phát</button>
                     <button class="btn btn-warning mr-3 px-4 py-4 disabled" id="pause">Tạm Dừng</button>
-                    <button class="btn btn-danger mr-3 px-4 py-4" id="reset" onclick="(function(){localStorage.current=0;location.reload()})()">Đặt Lại</button>
+                    <button class="btn btn-danger mr-3 px-4 py-4" id="reset" onclick="(function(){localStorage.clear();location.reload()})()">Đặt Lại</button>
                     <div>
     
                         <table class="my-3 h4 text-center w-100">
