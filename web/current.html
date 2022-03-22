@@ -84,7 +84,7 @@
 
             sentence = sentence.split(' ');
             document.querySelector('#sentenceBn').innerHTML = '';
-            sentence.forEach((x,y) => document.querySelector('#sentenceBn').innerHTML += `<span id='${y}' class='mr-2'>${x}</span>`);
+            sentence.forEach((x,y) => document.querySelector('#sentenceBn').innerHTML += `<span id='${y}' class='mr-2 d-inline-block'>${x}</span>`);
             
             this.classList.add('disabled');
             $('input').prop("disabled",true);
