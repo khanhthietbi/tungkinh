@@ -81,8 +81,8 @@
                 return;
             }
             if (this.classList.contains('disabled')) return;
-
-            sentence = sentence.split(' ');
+            // remove all double spaces, trim
+            sentence = sentence.replace(/ +(?= )/g,'').trim().split(' ');
             document.querySelector('#sentenceBn').innerHTML = '';
             sentence.forEach((x,y) => document.querySelector('#sentenceBn').innerHTML += `<span id='${y}' class='mr-2 d-inline-block'>${x}</span>`);
             
