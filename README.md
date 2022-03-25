@@ -1,8 +1,8 @@
 # php-getting-started
 
-A barebones PHP app that makes use of the [Silex](http://silex.sensiolabs.org/) web framework, which can easily be deployed to Heroku.
+This application is based on php-getting-started barebone with composer modification. I removed all redundant component to make it as clean and fast as possible.
 
-This application supports the [Getting Started with PHP on Heroku](https://devcenter.heroku.com/articles/getting-started-with-php) article - check it out.
+Original project can be found on [Getting Started with PHP on Heroku](https://devcenter.heroku.com/articles/getting-started-with-php) article.
 
 ## Deploying
 
