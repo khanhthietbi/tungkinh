@@ -1,4 +1,4 @@
-# php-getting-started
+# Tung kinh app by Khanhthietbi
 
 This application is based on php-getting-started barebone with composer modification. I removed all redundant component to make it as clean and fast as possible.
 
