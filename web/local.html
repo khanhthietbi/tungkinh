@@ -89,7 +89,7 @@
             sentence.forEach((x,y) => document.querySelector('#sentenceBn').innerHTML += `<span id='${y}' class='mr-2 d-inline-block'>${x}</span>`);
             
             this.classList.add('disabled');
-            $('input').prop("disabled",true);
+            $('input,textarea').prop("disabled",true);
             document.querySelector('#pause').classList.remove('disabled');
             var current = parseInt($('#current').val());
             var mute = parseInt($('#mute').val());
@@ -109,7 +109,7 @@
         $('#pause').click(function(){
             if (this.classList.contains('disabled')) return;
             this.classList.add('disabled');
-            $('input').prop("disabled",false);
+            $('input,textarea').prop("disabled",false);
             document.querySelector('#play').classList.remove('disabled');
 
             clearInterval(interval);
