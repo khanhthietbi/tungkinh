@@ -61,10 +61,10 @@
                 }
             }
             $('#tick').html(tickContent);
-            $('#sentenceBn span').removeClass('text-primary');
+            $('#sentenceBn span').removeClass('text-success');
             if (tick <= count) {
                 if (prod) sound.play();
-                $(`#sentenceBn span:nth-child(${tick})`).toggleClass('text-primary');
+                $(`#sentenceBn span:nth-child(${tick})`).toggleClass('text-success');
             }
             result+=1;
         }
